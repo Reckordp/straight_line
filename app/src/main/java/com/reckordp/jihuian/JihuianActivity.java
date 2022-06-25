@@ -17,24 +17,20 @@ public class JihuianActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jihuian);
-        FirebaseApp.initializeApp(this);
 
         Button login = findViewById(R.id.ok_login);
         login.setOnClickListener(v -> {
             String nama = tertulis(R.id.nama);
             String pass = tertulis(R.id.pass);
-            login.setEnabled(false);
+            User dapat = User.temukan(nama, pass);
 
-            User.temukan(nama, pass, dapat -> {
-                if (dapat == null) {
-                    noUser();
-                } else if (dapat.jenis == User.JENIS_GURU) {
-                    startActivity(buatIntent(dapat, MejaGuruActivity.class));
-                } else {
-                    startActivity(buatIntent(dapat, PKActivity.class));
-                }
-                login.setEnabled(true);
-            });
+            if (dapat == null) {
+                noUser();
+            } else if (dapat.jenis == User.JENIS_GURU) {
+                startActivity(buatIntent(dapat, MejaGuruActivity.class));
+            } else {
+                startActivity(buatIntent(dapat, PKActivity.class));
+            }
         });
     }
 

@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Jihuian">
         <activity
+            android:name=".WaitingActivity"
+            android:exported="true" />
+        <activity
             android:name=".MejaGuruActivity"
             android:label="Meja Guru" />
         <activity

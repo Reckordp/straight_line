@@ -5,6 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class GatherRoomActivity extends AppCompatActivity {
 
@@ -31,6 +35,12 @@ public class GatherRoomActivity extends AppCompatActivity {
         });
 
         findViewById(R.id.kembali).setOnClickListener(v -> finish());
+
+        ArrayList<User> users = new ArrayList<>();
+        users.add(user);
+
+        ListView lv = findViewById(R.id.daftar_pk);
+        lv.setAdapter(new PesanKesanAdapter(this, R.layout.pesan_kesan, users));
     }
 
     private void noUser() {

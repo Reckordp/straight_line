@@ -18,6 +18,8 @@ public class User implements Parcelable {
     protected User(Parcel in) {
         nama = in.readString();
         jenis = in.readInt();
+        pesan = in.readString();
+        kesan = in.readString();
     }
 
     public static final Creator<User> CREATOR = new Creator<User>() {
@@ -58,6 +60,21 @@ public class User implements Parcelable {
                         }
                     }
         });
+        return null;
+    }
+
+    public static User temukan(String nama, String pass) {
+        if (nama.equals("guru") && pass.equals("guru")) {
+            User ditemukan = new User();
+            ditemukan.nama = "GURU";
+            ditemukan.jenis = JENIS_GURU;
+            return ditemukan;
+        } else if (nama.equals("murid") && pass.equals("murid")) {
+            User ditemukan = new User();
+            ditemukan.nama = "MURID";
+            ditemukan.jenis = JENIS_MURID;
+            return ditemukan;
+        }
         return null;
     }
 

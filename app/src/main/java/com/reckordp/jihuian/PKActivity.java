@@ -7,6 +7,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
 
+import java.io.File;
+import java.nio.file.Files;
+
 public class PKActivity extends AppCompatActivity {
     public static String MENGUBAH_PESAN_KESAN = "MELAKUKAN PERUBAHAN";
 
@@ -20,6 +23,10 @@ public class PKActivity extends AppCompatActivity {
         EditText pesan = findViewById(R.id.pesan);
         EditText kesan = findViewById(R.id.kesan);
 
+        if (!(new File(getCacheDir(), "dibuka")).exists()) {
+            startActivity(new Intent(this, WaitingActivity.class));
+        }
+
         Intent intent = getIntent();
         if (intent.hasExtra(JihuianActivity.USER_APP)) {
             user = intent.getParcelableExtra(JihuianActivity.USER_APP);
@@ -30,6 +37,8 @@ public class PKActivity extends AppCompatActivity {
         }
 
         findViewById(R.id.kirim).setOnClickListener(v -> {
+            user.pesan = pesan.getText().toString();
+            user.kesan = kesan.getText().toString();
             keGather();
             finish();
         });
