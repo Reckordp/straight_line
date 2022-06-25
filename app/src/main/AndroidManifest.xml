@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Jihuian">
         <activity
+            android:name=".GatherRoomActivity"
+            android:label="Gather Room" />
+        <activity
             android:name=".PKActivity"
             android:label="Pesan dan Kesan" />
         <activity

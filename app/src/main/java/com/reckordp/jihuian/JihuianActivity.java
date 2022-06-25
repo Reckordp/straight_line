@@ -22,6 +22,8 @@ public class JihuianActivity extends AppCompatActivity {
 
             if (dapat != null) {
                 noUser();
+            } else if (dapat.jenis == User.JENIS_GURU) {
+//                startActivity();
             } else {
                 startActivity(new Intent(this, PKActivity.class));
             }
