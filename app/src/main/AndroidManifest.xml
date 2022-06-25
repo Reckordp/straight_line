@@ -11,7 +11,7 @@
         android:theme="@style/Theme.Jihuian">
         <activity
             android:name=".PKActivity"
-            android:exported="true" />
+            android:label="Pesan dan Kesan" />
         <activity
             android:name=".JihuianActivity"
             android:exported="true">
