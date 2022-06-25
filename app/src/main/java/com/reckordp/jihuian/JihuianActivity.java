@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.EditText;
 
 public class JihuianActivity extends AppCompatActivity {
@@ -15,18 +16,22 @@ public class JihuianActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jihuian);
 
-        findViewById(R.id.ok_login).setOnClickListener(v -> {
+        Button login = findViewById(R.id.ok_login);
+        login.setOnClickListener(v -> {
             String nama = tertulis(R.id.nama);
             String pass = tertulis(R.id.pass);
-            User dapat = User.temukan(nama, pass);
+            login.setEnabled(false);
 
-            if (dapat == null) {
-                noUser();
-            } else if (dapat.jenis == User.JENIS_GURU) {
-                startActivity(buatIntent(dapat, MejaGuruActivity.class));
-            } else {
-                startActivity(buatIntent(dapat, PKActivity.class));
-            }
+            User.temukan(nama, pass, dapat -> {
+                if (dapat == null) {
+                    noUser();
+                } else if (dapat.jenis == User.JENIS_GURU) {
+                    startActivity(buatIntent(dapat, MejaGuruActivity.class));
+                } else {
+                    startActivity(buatIntent(dapat, PKActivity.class));
+                }
+                login.setEnabled(true);
+            });
         });
     }
 

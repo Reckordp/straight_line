@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "634889723095",
+    "project_id": "sevima-hackathon-batch4",
+    "storage_bucket": "sevima-hackathon-batch4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:634889723095:android:01b6b5e18546b056a16492",
+        "android_client_info": {
+          "package_name": "com.reckordp.jihuian"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "634889723095-ie3s7lsac1othakm3pq9la5fkq00lpo8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDp2lwJVMo1t180ZYWFCflMeLQpaYWOBYs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "634889723095-ie3s7lsac1othakm3pq9la5fkq00lpo8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
