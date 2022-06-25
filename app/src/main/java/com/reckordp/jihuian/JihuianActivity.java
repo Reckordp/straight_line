@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.widget.EditText;
 
 public class JihuianActivity extends AppCompatActivity {
+    public static String USER_APP = "USER APP";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,11 +23,17 @@ public class JihuianActivity extends AppCompatActivity {
             if (dapat == null) {
                 noUser();
             } else if (dapat.jenis == User.JENIS_GURU) {
-//                startActivity();
+                startActivity(buatIntent(dapat, MejaGuruActivity.class));
             } else {
-                startActivity(new Intent(this, PKActivity.class));
+                startActivity(buatIntent(dapat, PKActivity.class));
             }
         });
+    }
+
+    private Intent buatIntent(User user, Class<?> cls) {
+        Intent intent = new Intent(this, cls);
+        intent.putExtra(USER_APP, user);
+        return intent;
     }
 
     private String tertulis(int id) {
