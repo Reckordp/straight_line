@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Jihuian">
         <activity
+            android:name=".PKActivity"
+            android:exported="true" />
+        <activity
             android:name=".JihuianActivity"
             android:exported="true">
             <intent-filter>
