@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.firebase.FirebaseApp;
+
 public class JihuianActivity extends AppCompatActivity {
     public static String USER_APP = "USER APP";
 
@@ -15,6 +17,7 @@ public class JihuianActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jihuian);
+        FirebaseApp.initializeApp(this);
 
         Button login = findViewById(R.id.ok_login);
         login.setOnClickListener(v -> {
