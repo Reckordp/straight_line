@@ -14,13 +14,12 @@ public class JihuianActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jihuian);
 
-        String nama = tertulis(R.id.nama);
-        String pass = tertulis(R.id.pass);
-
         findViewById(R.id.ok_login).setOnClickListener(v -> {
+            String nama = tertulis(R.id.nama);
+            String pass = tertulis(R.id.pass);
             User dapat = User.temukan(nama, pass);
 
-            if (dapat != null) {
+            if (dapat == null) {
                 noUser();
             } else if (dapat.jenis == User.JENIS_GURU) {
 //                startActivity();
